@@ -1,0 +1,47 @@
+sudo mysql -u root -p
+show databases;
+select version();
+select now();
+create database yyj;
+use yyj;
+create table sc(
+    -> id int primary key not null auto_increment,
+    -> account int not null unique,
+    -> name varchar(45) unique);
+desc sc;
+alter table sc add(
+    -> favorite varchar(45),
+    -> discount_reminding varchar(45),
+    -> double_wishes varchar(45));
+desc sc;
+insert into sc(account,name,favorite,discount_reminding,double_wishes) values
+    -> (123564,"haha","shoes","null","shoes");
+insert into sc(account,name,favorite,discount_reminding,double_wishes) values
+    -> (1235,"yn","hat,coat","hat","coat"),
+    -> (1265,"byq","shoes,coat","coat","shoes,coat"),
+    -> (1285,"zjt","book,hat,coat","coat","hat,coat");
+selete * from sc;
+update sc set double_wishes="hat" where name="yn";
+select * from sc;
+delete from sc where name="haha";
+select * from sc;
+
+2.
+source /home/yj/Desktop/hr.sql;
+show tables;
+select * from departments;
+select location_id from departments where location_id>1700 and location_id<2700;
+select * from departments order by department_id desc;
+select location_id,sum(location_id) from departments group by location_id;
+select location_id,count(location_id) from departments group by location_id;
+
+3.
+select location_id,max(department_id) from departments group by location_id having count(location_id)>1;
+
+4.
+select distinct(location_id),department_id,department_name,manager_id from departments;
+select distinct(location_id),department_id,department_name,manager_id from departments where department_id<90;
+
+
+
+
