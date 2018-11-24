@@ -1,0 +1,52 @@
+1.
+ create table lala(
+    -> id int auto_increment primary key);
+alter table lala add name varchar(10);
+alter table lala add method  set('phone','computer','ipad');
+alter table lala add logindate  datetime;
+insert into lala(name,method,logindate)values
+    -> ("qw",'phone',"2018-08-10 8:23");
+insert into lala(name,method,logindate)values
+    -> ("aw",'ipad',"2018-09-10 16:23");
+insert into lala(name,method,logindate)values                              
+    -> ("yd",'computer',"2017-06-15 20:15");
+insert into lala(name,method,logindate)values                               
+    -> ("bq",'phone',"2015-05-13 15:22");   
+insert into lala(name,method,logindate)values            
+    -> ("gh",'computer',"2018-11-15 16:25"); 
+select * from lala;
+select case
+-> when abs(datediff(logindate,now()))>30 then "你去死吧"                      
+-> when abs(datediff(logindate,now()))>9  then "你特么的回不回来"              
+-> when abs(datediff(logindate,now()))>7  then "快回来小天才"
+-> end from lala;   
+2.
+create table film(
+    -> id int not null primary key auto_increment,
+    -> name varchar(45),
+    -> year date,
+    -> score int );  
+alter table film add director varchar(45);
+insert into film(name,year,score,director)values                           
+    -> ("zhongguodeweidafazhan","2014-8-12",8,"qw"),
+    -> ("ccgcfcdtru","2006-10-26",9,"yr"),
+    -> ("huicundeyouhui","2003-07-11",6,"yangning"),
+    -> ("duye","2018-05-14",7,"yn"),
+    -> ("hhchjw","2018-09-18",7,"bd");        
+select * from film;
+select * from film where name like "%you%";
+select * from film where director like "%y%";
+select * from film where year like "2018-05-14";
+select * from film where score>8;
+3.
+create table sc(
+    -> id int not null primary key auto_increment,
+    -> account int not null unique,                                            
+    -> name varchar(45)); 
+ alter table sc add collection varchar(45); 
+ alter table sc add quxiao_collection varchar(45);
+insert into sc(account,name,collection,quxiao_collection)values
+    -> (123,"qw","cup","shoes"),
+    -> (248,"yn","coat","book"),
+    -> (258,"gh","hat","bag");
+select * from sc;
